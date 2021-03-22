@@ -210,7 +210,9 @@ class VxNet(nn.Module):
             nn.BatchNorm1d(64, eps=1e-3, momentum=0.01),
             nn.ReLU()
         )
-
+	# x 是体素点云，是一个 N*K*4 的张量
+	# points_mean 是 N*3 的张量，表示近邻点的中心位置
+	# is_test=False 表示是训练模式， True 表示推断模式
     def forward(self, x):
         middle = list()
 
